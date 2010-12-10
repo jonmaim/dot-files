@@ -8,9 +8,8 @@ set hls
 filetype on
 filetype plugin on
 filetype indent on
-
 "Syntax highlighting
-"syntax on
+syntax on
 
 "Color scheme
 colorscheme torte
