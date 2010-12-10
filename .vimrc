@@ -4,6 +4,11 @@ set nocompatible
 set ic
 set hls
 
+"Keep all temporary and backup files in one place
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
+
 "Detect the type of file
 filetype on
 filetype plugin on
