@@ -4,6 +4,11 @@ set nocompatible
 set ic
 set hls
 
+"Detect the type of file
+filetype on
+filetype plugin on
+filetype indent on
+
 "Syntax highlighting
 "syntax on
 
