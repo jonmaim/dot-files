@@ -1,2 +1,8 @@
 defscrollback 5000
+# Disable wuff wuff messages.
 vbell off
+# Disable splash screen
+startup_message off
+# displays a status bar at the bottom with window names, time, and date   
+# caption command similar to hardstatus, but duplicated in split mode   
+caption always "%{= b}%-w%{= G}%n %t%{-}%+w %-=%{G}%c %D, %d %M, %Y " 
