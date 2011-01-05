@@ -1,5 +1,12 @@
 set nocompatible
 
+"Remove toolbar
+if has("gui_running")
+   set guioptions=-t
+   set lines=65 columns=270
+   set ruler
+endif
+
 "Search ignore case + highlight
 set ic
 set hls
