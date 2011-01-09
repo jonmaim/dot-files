@@ -244,3 +244,8 @@ if main_syntax == 'javascript'
 endif
 
 " vim: ts=4
+
+" JM add.
+set tabstop=3
+set shiftwidth=3
+set expandtab
