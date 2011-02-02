@@ -1,3 +1,8 @@
+"Init commands
+"autocmd VimEnter * NERDTree
+
+set nofoldenable 
+
 set nocompatible
 
 "Remove toolbar
