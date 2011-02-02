@@ -5,6 +5,9 @@ set nofoldenable
 
 set nocompatible
 
+runtime repos/tplugin_vim/macros/tplugin.vim
+"let g:tcommentGuessFileType_htmldjango = 1
+
 "Remove toolbar
 if has("gui_running")
    set guioptions=-t
