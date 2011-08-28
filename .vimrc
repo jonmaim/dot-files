@@ -1,13 +1,22 @@
-"Init commands
+"Launch NERDTree at start and position the cursor in the main window.
 "autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
 
 set nofoldenable 
 set nocompatible
+set smartindent
+set autoindent
+set cindent
 
 call pathogen#runtime_append_all_bundles()
 
 runtime repos/tplugin_vim/macros/tplugin.vim
 "let g:tcommentGuessFileType_htmldjango = 1
+
+"Compiles coffee script files silently and with the --bare and --print options
+" to shows any errors without generating .js files.
+au BufWritePost *.coffee silent CoffeeMake! -bp | cwindow | redraw!
+au BufWritePost Cakefile silent CoffeeMake! -bp | cwindow | redraw!
 
 "Remove toolbar
 if has("gui_running")
@@ -15,6 +24,34 @@ if has("gui_running")
    set lines=65 columns=270
    set ruler
 endif
+
+" make sure that unsaved buffers that are to be put in the background are
+" allowed to go in there (ie. the "must save first" error doesn't come up)
+set hidden
+" show the current command in the lower right corner
+set showcmd
+" show the current mode
+set showmode
+" hide the mouse pointer while typing
+set mousehide
+" set up the gui cursor to look nice
+set guicursor=n-v-c:block-Cursor-blinkon0
+set guicursor+=ve:ver35-Cursor
+set guicursor+=o:hor50-Cursor
+set guicursor+=i-ci:ver25-Cursor
+set guicursor+=r-cr:hor20-Cursor
+set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+" allow pasting into other apps and use simple dialogs
+set guioptions=ac
+" keep some stuff in the history
+set history=100
+" yank to system clipboard
+set clipboard=unnamed
+" toggle nerdtree
+map <silent> <C-n> :execute 'NERDTreeToggle '<CR>
+" nerdtree position and size
+let NERDTreeWinPos = "left"
+let NERDTreeWinSize = 30
 
 " Invisible chars
 " Shortcut to rapidly toggle `set list`
@@ -46,14 +83,16 @@ set background=dark
 set number
 
 "Tab and indent rule
-set autoindent
+"set autoindent
 "set smartindent
-" set tabstop=3
-" set shiftwidth=3
-" set expandtab
+ set tabstop=2
+ set softtabstop=2
+ set shiftwidth=2
+ set expandtab
 if has("autocmd")
-   autocmd FileType javascript setlocal ts=3 sts=3 sw=3 expandtab
-   autocmd FileType jade       setlocal ts=2 sts=2 sw=2 expandtab
+   autocmd FileType javascript   setlocal ts=2 sts=2 sw=2 expandtab
+   autocmd FileType coffee       setlocal ts=2 sts=2 sw=2 expandtab
+   autocmd FileType jade         setlocal ts=2 sts=2 sw=2 expandtab
 endif
 
 "Vim tabs
