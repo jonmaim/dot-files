@@ -52,6 +52,7 @@ map <silent> <C-n> :execute 'NERDTreeToggle '<CR>
 " nerdtree position and size
 let NERDTreeWinPos = "left"
 let NERDTreeWinSize = 30
+let NERDTreeQuitOnOpen = 1
 
 " Invisible chars
 " Shortcut to rapidly toggle `set list`
