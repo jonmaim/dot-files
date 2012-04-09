@@ -9,6 +9,7 @@ set autoindent
 set cindent
 
 call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 runtime repos/tplugin_vim/macros/tplugin.vim
 "let g:tcommentGuessFileType_htmldjango = 1
