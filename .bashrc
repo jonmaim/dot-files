@@ -100,3 +100,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
+
+. ~/.scripts/git_prompt
+
+. ~/.aliases/git
