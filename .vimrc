@@ -4,9 +4,11 @@
 
 set nofoldenable 
 set nocompatible
-set smartindent
-set autoindent
-set cindent
+"set smartindent
+"set autoindent
+"set cindent
+
+set sw=2
 
 call pathogen#runtime_append_all_bundles()
 call pathogen#infect()
@@ -92,9 +94,10 @@ set number
  set shiftwidth=2
  set expandtab
 if has("autocmd")
-   autocmd FileType javascript   setlocal ts=2 sts=2 sw=2 expandtab
-   autocmd FileType coffee       setlocal ts=2 sts=2 sw=2 expandtab
-   autocmd FileType jade         setlocal ts=2 sts=2 sw=2 expandtab
+   autocmd FileType html        setlocal ts=2 sts=2 sw=2 expandtab
+   autocmd FileType javascript  setlocal ts=2 sts=2 sw=2 expandtab
+   autocmd FileType coffee      setlocal ts=2 sts=2 sw=2 expandtab
+   autocmd FileType jade        setlocal ts=2 sts=2 sw=2 expandtab
 endif
 
 "Vim tabs

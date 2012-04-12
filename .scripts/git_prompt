@@ -1,4 +1,6 @@
 # https://gist.github.com/828432
+# http://vvv.tobiassjosten.net/git/add-current-git-branch-to-your-bash-prompt
+# http://vvv.tobiassjosten.net/bash/dynamic-prompt-with-git-and-ansi-colors
 #
 # Configure colors, if available.
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
