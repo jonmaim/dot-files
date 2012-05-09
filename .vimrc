@@ -67,6 +67,9 @@ set listchars=tab:▸\ ,eol:¬
 set ic
 set hls
 
+"Display non printing character as errors.
+match Error /[\x7f-\xff]/
+
 "Keep all temporary and backup files in one place
 set backup
 set backupdir=~/.vim/backup
