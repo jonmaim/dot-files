@@ -101,6 +101,8 @@ fi
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 
+export NODE_PATH="/usr/local/lib/node"
+
 . ~/.scripts/git_prompt
 
 . ~/.aliases/git
