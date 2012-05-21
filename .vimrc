@@ -65,7 +65,7 @@ set listchars=tab:▸\ ,eol:¬
 
 "Search ignore case + highlight
 set ic
-set hls
+set hlsearch
 
 "Display non printing character as errors.
 match Error /[\x7f-\xff]/
@@ -85,6 +85,8 @@ syntax on
 "Color scheme
 colorscheme torte
 set background=dark
+" Highlitghe terms in yellow (need to be set after color scheme)
+highlight search ctermbg=yellow ctermfg=white
 
 "Line numbering
 set number
