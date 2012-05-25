@@ -57,6 +57,10 @@ else
 fi
 unset color_prompt force_color_prompt
 
+# The bash prompt always go to the first column.
+# http://jonisalonen.com/2012/your-bash-prompt-needs-this/
+PS1="\[\033[G\]$PS1"
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
