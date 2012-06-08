@@ -7,3 +7,4 @@ ln -sf dot-files/.vimrc
 ln -sf dot-files/.bashrc
 ln -sf dot-files/.aliases
 ln -sf dot-files/.scripts
+ln -sf dot-files/.screenrc
