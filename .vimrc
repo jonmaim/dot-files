@@ -83,7 +83,7 @@ filetype indent on
 syntax on
 
 "Color scheme
-colorscheme torte
+colorscheme candy
 set background=dark
 " Highlitghe terms in yellow (need to be set after color scheme)
 highlight search ctermbg=yellow ctermfg=white
