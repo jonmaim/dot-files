@@ -1,10 +1,12 @@
 #!/bin/bash
-cd ~/dot-files
+# Get the directorty of the install script.
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $DIR;
 git submodule update --init --recursive
 cd ~
-ln -sf dot-files/.vim
-ln -sf dot-files/.vimrc
-ln -sf dot-files/.bashrc
-ln -sf dot-files/.aliases
-ln -sf dot-files/.scripts
-ln -sf dot-files/.screenrc
+ln -sf $DIR/.vim
+ln -sf $DIR/.vimrc
+ln -sf $DIR/.bashrc
+ln -sf $DIR/.aliases
+ln -sf $DIR/.scripts
+ln -sf $DIR/.screenrc
