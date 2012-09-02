@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vendor/dwm.vim"]
+	path = vendor/dwm.vim
+	url = https://github.com/spolu/dwm.vim.git
