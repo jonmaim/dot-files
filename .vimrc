@@ -66,6 +66,8 @@ set listchars=tab:▸\ ,eol:¬
 "Search ignore case + highlight
 set ic
 set hlsearch
+" Show the first match for the pattern, while you are still typing it.
+set incsearch
 
 "Display non printing character as errors.
 match Error /[\x7f-\xff]/
