@@ -11,6 +11,8 @@ HISTCONTROL=ignoredups:ignorespace
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+# automatically correct mistyped directory names on cd
+shopt -s cdspell
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -103,10 +105,12 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# mix history between terminals
+PROMPT_COMMAND="$PROMPT_COMMAND;history -a;"
+
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 
 export NODE_PATH="/usr/local/lib/node"
 
 . ~/.scripts/git_prompt
-
 . ~/.aliases/git
