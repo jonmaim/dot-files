@@ -110,7 +110,11 @@ PROMPT_COMMAND="$PROMPT_COMMAND;history -a;"
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 
-export NODE_PATH="/usr/local/lib/node"
+#export NODE_PATH="/usr/local/lib/node"
+# This loads NVM
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh" 
 
 . ~/.scripts/git_prompt
 . ~/.aliases/git
+
+[[ -s "$HOME/dot-files/z/z.sh" ]] && . "$HOME/dot-files/z/z.sh"

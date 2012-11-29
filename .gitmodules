@@ -10,3 +10,6 @@
 [submodule "vendor/dwm.vim"]
 	path = vendor/dwm.vim
 	url = https://github.com/spolu/dwm.vim.git
+[submodule "z"]
+	path = z
+	url = git://github.com/rupa/z.git
