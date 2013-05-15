@@ -1,4 +1,4 @@
-#My lame dot files
+#Minsh dot files mainly for Ubuntu and Vim
 Enjoy!
 
 ## Install
