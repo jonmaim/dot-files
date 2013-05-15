@@ -1,4 +1,7 @@
-#Minsh dot files mainly for Ubuntu and Vim
+#Minsh dot-files
+
+Useful for Ubuntu and Vim
+
 Enjoy!
 
 ## Install
