@@ -124,3 +124,12 @@ map cp <ESC>:cp<CR>
 map <F2> <ESC>:wa<CR><ESC>:make<CR>
 map! <F2> <ESC>:wa<CR><ESC>:make<CR>
 map <F10> <ESC>:%s///g<CR>
+
+" jsbeautify
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
