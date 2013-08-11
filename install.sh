@@ -1,8 +1,13 @@
 #!/bin/bash
-# Get the directorty of the install script.
+
+# should be executed from your home directory root
+
+# get the directory of the install script
 DIR=`dirname $0`
-cd $DIR;
-git submodule update --init --recursive
+pushd .
+cd $DIR
+git submodule update --init --recursive;
+popd
 ln -sf $DIR/.vim
 ln -sf $DIR/.vimrc
 ln -sf $DIR/.bashrc
