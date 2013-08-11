@@ -3,7 +3,6 @@
 DIR=`dirname $0`
 cd $DIR;
 git submodule update --init --recursive
-cd ~
 ln -sf $DIR/.vim
 ln -sf $DIR/.vimrc
 ln -sf $DIR/.bashrc
