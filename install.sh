@@ -1,6 +1,6 @@
 #!/bin/bash
 # Get the directorty of the install script.
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR=`dirname $0`
 cd $DIR;
 git submodule update --init --recursive
 cd ~
