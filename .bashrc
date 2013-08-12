@@ -116,6 +116,5 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 
 . ~/.scripts/git_prompt
 . ~/.aliases/git
-. ~/.aws
-
+[[ -s "~/.aws" ]] && . ~/.aws
 [[ -s "$HOME/dot-files/z/z.sh" ]] && . "$HOME/dot-files/z/z.sh"
