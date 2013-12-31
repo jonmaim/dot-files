@@ -136,3 +136,6 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " delete .vim/.netrwhist
 au VimLeave * if filereadable("~/.vim/.netrwhist")|call delete("~/.vim/.netrwhist")|endif 
+
+" automatically remove trailing whitespace when saving
+autocmd BufWritePre *.js :%s/\s\+$//e

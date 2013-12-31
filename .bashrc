@@ -118,3 +118,10 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 . ~/.aliases/git
 [[ -s "~/.aws" ]] && . ~/.aws
 [[ -s "$HOME/dot-files/z/z.sh" ]] && . "$HOME/dot-files/z/z.sh"
+
+# add ~/bin in PATH env
+export PATH=$PATH:~/bin
+export PATH=${PATH}:~/android-sdk-linux/tools:~/android-sdk-linux/platform-tools
+export ANDROID_HOME=~/android-sdk-linux
+export JAVA_HOME="/usr/lib/jvm/java-1.6.0-openjdk-i386"
+export PATH="$PATH:$JAVA_HOME/bin"
