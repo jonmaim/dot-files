@@ -123,5 +123,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 export PATH=$PATH:~/bin
 export PATH=${PATH}:~/android-sdk-linux/tools:~/android-sdk-linux/platform-tools
 export ANDROID_HOME=~/android-sdk-linux
+# if on mac uncomment line below
+# export JAVA_HOME=$(/usr/libexec/java_home)
 export JAVA_HOME="/usr/lib/jvm/java-1.6.0-openjdk-i386"
 export PATH="$PATH:$JAVA_HOME/bin"

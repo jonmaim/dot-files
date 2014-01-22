@@ -70,6 +70,7 @@ set hlsearch
 set incsearch
 
 "Display non printing character as errors.
+highlight Error guibg=red ctermbg=darkred
 match Error /[\x7f-\xff]/
 
 "Keep all temporary and backup files in one place
