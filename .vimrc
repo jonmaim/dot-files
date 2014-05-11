@@ -1,25 +1,44 @@
-"Launch NERDTree at start and position the cursor in the main window.
-"autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
+set nocompatible
+
+" Required Vundle setup
+filetype off
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" loading vundle bundle first
+Bundle 'gmarik/vundle'
+"
+Bundle 'airblade/vim-gitgutter'
+"
+Bundle 'walm/jshint.vim.git'
+"
+Bundle 'scrooloose/nerdtree'
+"
+Bundle 'rodjek/vim-puppet'
+"
+Bundle 'majutsushi/tagbar'
+"
+Bundle 'kchmck/vim-coffee-script.git'
+"
+Bundle 'tpope/vim-fugitive'
+"
+Bundle 'maksimr/vim-jsbeautify'
+"
+Bundle 'groenewege/vim-less'
+"
+Bundle 'jonmaim/dwm.vim'
 
 set nofoldenable 
-set nocompatible
 "set smartindent
 "set autoindent
 "set cindent
 
-set sw=2
 
-call pathogen#runtime_append_all_bundles()
-call pathogen#infect()
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#infect()
 
-runtime repos/tplugin_vim/macros/tplugin.vim
+""runtime repos/tplugin_vim/macros/tplugin.vim
 "let g:tcommentGuessFileType_htmldjango = 1
-
-"Compiles coffee script files silently and with the --bare and --print options
-" to shows any errors without generating .js files.
-au BufWritePost *.coffee silent CoffeeMake! -bp | cwindow | redraw!
-au BufWritePost Cakefile silent CoffeeMake! -bp | cwindow | redraw!
 
 "Remove toolbar
 if has("gui_running")
@@ -50,57 +69,61 @@ set guioptions=ac
 set history=100
 " yank to system clipboard
 set clipboard=unnamed
-" toggle nerdtree
+
+" <c-n> to toggle nerdtree
 map <silent> <C-n> :execute 'NERDTreeToggle '<CR>
 " nerdtree position and size
 let NERDTreeWinPos = "left"
 let NERDTreeWinSize = 30
 let NERDTreeQuitOnOpen = 1
+" launch NERDTree at start and position the cursor in the main window.
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
 
-" Invisible chars
-" Shortcut to rapidly toggle `set list`
+" invisible chars
+" shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR> 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
-"Search ignore case + highlight
+" search ignore case + highlight
 set ic
 set hlsearch
-" Show the first match for the pattern, while you are still typing it.
+" show the first match for the pattern, while you are still typing it.
 set incsearch
 
-"Display non printing character as errors.
+" display non printing character as errors.
 highlight Error guibg=red ctermbg=darkred
 match Error /[\x7f-\xff]/
 
-"Keep all temporary and backup files in one place
+" keep all temporary and backup files in one place
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 
-"Detect the type of file
+" detect the type of file
 filetype on
 filetype plugin on
 filetype indent on
-"Syntax highlighting
+" syntax highlighting
 syntax on
 
 "Color scheme
 colorscheme candy
 set background=dark
-" Highlitghe terms in yellow (need to be set after color scheme)
+" Highlight terms in yellow (need to be set after color scheme)
 highlight search ctermbg=yellow ctermfg=white
 
 "Line numbering
 set number
 
-"Tab and indent rule
+" tab and indent rule
 "set autoindent
 "set smartindent
- set tabstop=2
- set softtabstop=2
- set shiftwidth=2
- set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
 if has("autocmd")
    autocmd FileType html        setlocal ts=2 sts=2 sw=2 expandtab
    autocmd FileType javascript  setlocal ts=2 sts=2 sw=2 expandtab
@@ -112,27 +135,24 @@ endif
 map tn <ESC>:tabnext<CR>
 map tp <ESC>:tabprevious<CR>
 
-"Code
-"Automatic code indent
+" Code
+" Automatic code indent
 "set cindent
 " 80 chars line
 "set textwidth=80
-"Compiling
+" compiling
 set makeprg=./compile.debug.all
-"Map next/prev error
+" map next/prev error
 map cn <ESC>:cn<CR>
 map cp <ESC>:cp<CR>
 map <F2> <ESC>:wa<CR><ESC>:make<CR>
 map! <F2> <ESC>:wa<CR><ESC>:make<CR>
 map <F10> <ESC>:%s///g<CR>
 
-" jsbeautify
+" <c-f> to beautify
 map <c-f> :call JsBeautify()<cr>
-" or
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for html
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " delete .vim/.netrwhist
@@ -141,3 +161,8 @@ au VimLeave * if filereadable("~/.vim/.netrwhist")|call delete("~/.vim/.netrwhis
 " automatically remove trailing whitespace when saving
 autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre *.html :%s/\s\+$//e
+
+" compiles coffee script files silently and with the --bare and --print options
+" to shows any errors without generating .js files.
+au BufWritePost *.coffee silent CoffeeMake! -bp | cwindow | redraw!
+au BufWritePost Cakefile silent CoffeeMake! -bp | cwindow | redraw!
