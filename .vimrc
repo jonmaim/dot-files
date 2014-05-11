@@ -140,3 +140,4 @@ au VimLeave * if filereadable("~/.vim/.netrwhist")|call delete("~/.vim/.netrwhis
 
 " automatically remove trailing whitespace when saving
 autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.html :%s/\s\+$//e
