@@ -4,13 +4,12 @@
 
 # get the directory of the install script
 DIR=`dirname $0`
-pushd .
 cd $DIR
 git submodule update --init --recursive;
 # vim vundle install
-git clone https://github.com/gmarik/Vundle.vim.git bundle/vundle
+[[ ! -d "./vim/bundle/vundle" ]] || git clone https://github.com/gmarik/Vundle.vim.git .vim/bundle/vundle
 vim +BundleInstall +qall
-popd
+cd -
 ln -sf $DIR/.vim
 ln -sf $DIR/.vimrc
 ln -sf $DIR/.bashrc
@@ -18,3 +17,4 @@ ln -sf $DIR/.inputrc
 ln -sf $DIR/.aliases
 ln -sf $DIR/.scripts
 ln -sf $DIR/.screenrc
+ln -sf $DIR/.fonts

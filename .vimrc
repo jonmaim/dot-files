@@ -25,20 +25,25 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'maksimr/vim-jsbeautify'
 "
 Bundle 'groenewege/vim-less'
-"
+" <C-A> to add a new window tile
+" <C-ENTER> to focus current tile to main
 Bundle 'jonmaim/dwm.vim'
+" status line
+Bundle 'Lokaltog/powerline'
+" <C-_> <C-_> to comment the current line/region
+Bundle 'vim-scripts/tComment'
 
-set nofoldenable 
+" powerline setup
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set laststatus=2
+set encoding=utf-8
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+
+set nofoldenable
 "set smartindent
 "set autoindent
 "set cindent
-
-
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#infect()
-
-""runtime repos/tplugin_vim/macros/tplugin.vim
-"let g:tcommentGuessFileType_htmldjango = 1
 
 "Remove toolbar
 if has("gui_running")
@@ -82,7 +87,7 @@ let NERDTreeQuitOnOpen = 1
 
 " invisible chars
 " shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR> 
+nmap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
@@ -92,10 +97,6 @@ set hlsearch
 " show the first match for the pattern, while you are still typing it.
 set incsearch
 
-" display non printing character as errors.
-highlight Error guibg=red ctermbg=darkred
-match Error /[\x7f-\xff]/
-
 " keep all temporary and backup files in one place
 set backup
 set backupdir=~/.vim/backup
@@ -103,16 +104,20 @@ set directory=~/.vim/tmp
 
 " detect the type of file
 filetype on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 " syntax highlighting
 syntax on
 
 "Color scheme
 colorscheme candy
 set background=dark
+" git gutter color should be black
+highlight clear SignColumn
 " Highlight terms in yellow (need to be set after color scheme)
 highlight search ctermbg=yellow ctermfg=white
+" display non printing character as errors.
+highlight Error guibg=red ctermbg=darkred
+match Error /[\x7f-\xff]/
 
 "Line numbering
 set number
@@ -151,18 +156,22 @@ map <F10> <ESC>:%s///g<CR>
 
 " <c-f> to beautify
 map <c-f> :call JsBeautify()<cr>
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " delete .vim/.netrwhist
-au VimLeave * if filereadable("~/.vim/.netrwhist")|call delete("~/.vim/.netrwhist")|endif 
+au VimLeave * if filereadable("~/.vim/.netrwhist")|call delete("~/.vim/.netrwhist")|endif
 
 " automatically remove trailing whitespace when saving
 autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre *.html :%s/\s\+$//e
+autocmd BufWritePre *.vimrc :%s/\s\+$//e
 
 " compiles coffee script files silently and with the --bare and --print options
 " to shows any errors without generating .js files.
 au BufWritePost *.coffee silent CoffeeMake! -bp | cwindow | redraw!
 au BufWritePost Cakefile silent CoffeeMake! -bp | cwindow | redraw!
+
+" force markdown on all *.md files
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
