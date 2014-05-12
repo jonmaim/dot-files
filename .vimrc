@@ -32,6 +32,8 @@ Bundle 'jonmaim/dwm.vim'
 Bundle 'Lokaltog/powerline'
 " <C-_> <C-_> to comment the current line/region
 Bundle 'vim-scripts/tComment'
+"
+Bundle 'nhooey/tabname'
 
 " powerline setup
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
