@@ -1,4 +1,5 @@
 set nocompatible
+set sw=2
 
 " Required Vundle setup
 filetype off
@@ -7,6 +8,12 @@ call vundle#rc()
 
 " loading vundle bundle first
 Bundle 'gmarik/vundle'
+"
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
+Bundle 'nathanaelkane/vim-indent-guides'
+"
+Bundle 'digitaltoad/vim-jade'
 "
 Bundle 'airblade/vim-gitgutter'
 "
@@ -32,8 +39,51 @@ Bundle 'jonmaim/dwm.vim'
 Bundle 'Lokaltog/powerline'
 " <C-_> <C-_> to comment the current line/region
 Bundle 'vim-scripts/tComment'
-"
+" :TName 'tab_page_name' - set tab name
+" :TNoName - remove tab page name
 Bundle 'nhooey/tabname'
+"
+Bundle 'Valloric/YouCompleteMe'
+"
+Bundle 'marijnh/tern_for_vim'
+" automatically add the closing quote, bracket, etc.
+Bundle 'Raimondi/delimitMate'
+" syntax checking
+Bundle 'scrooloose/syntastic'
+
+" Custom syntastic settings:
+function s:find_jshintrc(dir)
+    let l:found = globpath(a:dir, '.jshintrc')
+    if filereadable(l:found)
+        return l:found
+    endif
+
+    let l:parent = fnamemodify(a:dir, ':h')
+    if l:parent != a:dir
+        return s:find_jshintrc(l:parent)
+    endif
+
+    return "~/.jshintrc"
+endfunction
+
+function UpdateJsHintConf()
+    let l:dir = expand('%:p:h')
+    let l:jshintrc = s:find_jshintrc(l:dir)
+    let g:syntastic_javascript_jshint_conf = l:jshintrc
+endfunction
+
+au BufEnter * call UpdateJsHintConf()
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_debug = 0
+" This does what it says on the tin. It will check your file on open too, not just on save.
+" You might not want this, so just leave it out if you don't.
+let g:syntastic_check_on_open=1
+
+" These are the tweaks I apply to YCM's config, you don't need them but they might help.
+" YCM gives you popups and splits by default that some people might not like, so these should tidy it up a bit for you.
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
 
 " powerline setup
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -116,7 +166,9 @@ set background=dark
 " git gutter color should be black
 highlight clear SignColumn
 " Highlight terms in yellow (need to be set after color scheme)
-highlight search ctermbg=yellow ctermfg=white
+highlight search ctermbg=yellow ctermfg=black
+" line number color
+highlight LineNr ctermfg=grey
 " display non printing character as errors.
 highlight Error guibg=red ctermbg=darkred
 match Error /[\x7f-\xff]/
@@ -138,7 +190,7 @@ if has("autocmd")
    autocmd FileType jade        setlocal ts=2 sts=2 sw=2 expandtab
 endif
 
-"Vim tabs
+" tabs
 map tn <ESC>:tabnext<CR>
 map tp <ESC>:tabprevious<CR>
 
