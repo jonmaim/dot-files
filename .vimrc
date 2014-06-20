@@ -49,7 +49,10 @@ Bundle 'marijnh/tern_for_vim'
 " automatically add the closing quote, bracket, etc.
 Bundle 'Raimondi/delimitMate'
 " syntax checking
+" disable with :SyntasticToggleMode
 Bundle 'scrooloose/syntastic'
+" nginx.conf
+Bundle 'evanmiller/nginx-vim-syntax'
 
 " Custom syntastic settings:
 function s:find_jshintrc(dir)
@@ -91,6 +94,10 @@ set laststatus=2
 set encoding=utf-8
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
+
+" mouse in vim terminal? oh yeah
+set ttymouse=xterm2
+set mouse=n
 
 set nofoldenable
 "set smartindent
@@ -221,6 +228,7 @@ au VimLeave * if filereadable("~/.vim/.netrwhist")|call delete("~/.vim/.netrwhis
 autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre *.html :%s/\s\+$//e
 autocmd BufWritePre *.vimrc :%s/\s\+$//e
+autocmd BufWritePre *.pp :%s/\s\+$//e
 
 " compiles coffee script files silently and with the --bare and --print options
 " to shows any errors without generating .js files.
@@ -229,3 +237,6 @@ au BufWritePost Cakefile silent CoffeeMake! -bp | cwindow | redraw!
 
 " force markdown on all *.md files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" turn off vim recording for good
+map q <Nop>

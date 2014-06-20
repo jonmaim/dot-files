@@ -105,6 +105,11 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# show last command as title
+# prerequisite: sudo apt-get install xtitle
+# lastcmd() { xtitle $(history 1 | cut -c8-); }
+# PROMPT_COMMAND=lastcmd
+
 # mix history between terminals
 PROMPT_COMMAND="$PROMPT_COMMAND;history -a;"
 
