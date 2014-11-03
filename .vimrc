@@ -17,8 +17,6 @@ Bundle 'digitaltoad/vim-jade'
 "
 Bundle 'airblade/vim-gitgutter'
 "
-Bundle 'walm/jshint.vim.git'
-"
 Bundle 'scrooloose/nerdtree'
 "
 Bundle 'rodjek/vim-puppet'
@@ -76,8 +74,32 @@ function UpdateJsHintConf()
 endfunction
 
 au BufEnter * call UpdateJsHintConf()
-let g:syntastic_always_populate_loc_list=1
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_debug = 0
+
+" let g:loaded_syntastic_javascript_jscs_checker=1
+" " Custom syntastic settings:
+" function s:find_jscsrc(dir)
+"     let l:found = globpath(a:dir, '.jscsrc')
+"     if filereadable(l:found)
+"         return l:found
+"     endif
+"
+"     let l:parent = fnamemodify(a:dir, ':h')
+"     if l:parent != a:dir
+"         return s:find_jscsrc(l:parent)
+"     endif
+"
+"     return "~/.jscsrc"
+" endfunction
+"
+" function UpdateJscsConf()
+"     let l:dir = expand('%:p:h')
+"     let l:jscsrc = s:find_jscsrc(l:dir)
+"     let g:syntastic_javascript_jscs_conf = l:jscsrc
+" endfunction
+" au BufEnter * call UpdateJscsConf()
+
 " This does what it says on the tin. It will check your file on open too, not just on save.
 " You might not want this, so just leave it out if you don't.
 let g:syntastic_check_on_open=1
@@ -226,6 +248,8 @@ au VimLeave * if filereadable("~/.vim/.netrwhist")|call delete("~/.vim/.netrwhis
 
 " automatically remove trailing whitespace when saving
 autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.scss :%s/\s\+$//e
+autocmd BufWritePre *.css :%s/\s\+$//e
 autocmd BufWritePre *.html :%s/\s\+$//e
 autocmd BufWritePre *.vimrc :%s/\s\+$//e
 autocmd BufWritePre *.pp :%s/\s\+$//e

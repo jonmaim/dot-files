@@ -110,8 +110,8 @@ fi
 # lastcmd() { xtitle $(history 1 | cut -c8-); }
 # PROMPT_COMMAND=lastcmd
 
-# mix history between terminals
-PROMPT_COMMAND="$PROMPT_COMMAND;history -a;"
+# save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 
@@ -130,5 +130,5 @@ export PATH=${PATH}:~/android-sdk-linux/tools:~/android-sdk-linux/platform-tools
 export ANDROID_HOME=~/android-sdk-linux
 # if on mac uncomment line below
 # export JAVA_HOME=$(/usr/libexec/java_home)
-export JAVA_HOME="/usr/lib/jvm/java-1.6.0-openjdk-i386"
+export JAVA_HOME="/usr/lib/jvm/java-7-oracle"
 export PATH="$PATH:$JAVA_HOME/bin"
