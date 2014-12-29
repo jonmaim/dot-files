@@ -23,7 +23,6 @@ ln -sf $DIR/.fonts
 #sudo apt-get install build-essential cmake python-dev
 #cd .vim/bundle/YouCompleteMe;
 #./install.sh
-
 # tern setup
 #cd ../tern_for_vim;
 #npm install;
