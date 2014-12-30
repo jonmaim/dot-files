@@ -42,7 +42,7 @@ Bundle 'vim-scripts/tComment'
 
 " :TName 'tab_page_name' - set tab name
 " :TNoName - remove tab page name
-Bundle 'nhooey/tabname'
+"Bundle 'nhooey/tabname'
 
 " syntax checking
 " disable with :SyntasticToggleMode
@@ -223,18 +223,22 @@ filetype on
 "filetype plugin indent on
 
 " syntax highlighting
-syntax on
+"syntax on
 
-"Color scheme
+" Color scheme
 colorscheme candy
-set background=dark
 
 " git gutter color should be black
 highlight clear SignColumn
 " Highlight terms in yellow (need to be set after color scheme)
 highlight search ctermbg=yellow ctermfg=black
 " line number color
-highlight LineNr ctermfg=grey
+highlight LineNr ctermfg=darkgrey
+" comments color
+highlight Comment ctermfg=grey
+" vertical split style
+highlight VertSplit ctermbg=darkgrey ctermfg=16
+
 " display non printing character as errors.
 highlight Error guibg=red ctermbg=darkred
 match Error /[\x7f-\xff]/
