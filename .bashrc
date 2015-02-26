@@ -121,8 +121,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 
 . ~/.scripts/git_prompt
 . ~/.aliases/git
-[ -f ~/.aws ] && . ~/.aws
-[ -f $HOME/dot-files/z/z.sh ] && . $HOME/dot-files/z/z.sh
+#[ -f ~/.aws ] && . ~/.aws
+#[ -f $HOME/dot-files/z/z.sh ] && . $HOME/dot-files/z/z.sh
 
 # add ~/bin in PATH env
 export PATH=$PATH:~/bin
