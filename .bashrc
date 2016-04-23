@@ -124,6 +124,11 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 #[ -f ~/.aws ] && . ~/.aws
 #[ -f $HOME/dot-files/z/z.sh ] && . $HOME/dot-files/z/z.sh
 
+# osx git completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
 # add ~/bin in PATH env
 export PATH=$PATH:~/bin
 export PATH=${PATH}:~/android-sdk-linux/tools:~/android-sdk-linux/platform-tools
