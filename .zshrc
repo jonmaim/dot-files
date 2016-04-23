@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jonmaim/.oh-my-zsh
+if [[ `uname` == 'Darwin' ]]; then
+  export ZSH=/Users/jonmaim/.oh-my-zsh
+else
+  export ZSH=/home/vagrant/.oh-my-zsh
+fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,7 +57,12 @@ plugins=(git catimg)
 
 # User configuration
 
-export PATH="/Users/jonmaim/.nvm/v0.10.26/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jonmaim/bin:/Users/jonmaim/android-sdk-linux/tools:/Users/jonmaim/android-sdk-linux/platform-tools:/usr/lib/jvm/java-7-oracle/bin"
+if [[ `uname` == 'Darwin' ]]; then
+  export PATH="/Users/jonmaim/.nvm/v4.4.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jonmaim/bin:/Users/jonmaim/android-sdk-linux/tools:/Users/jonmaim/android-sdk-linux/platform-tools:/usr/lib/jvm/java-7-oracle/bin"
+else
+  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/vagrant/bin:/home/vagrant/android-sdk-linux/tools:/home/vagrant/android-sdk-linux/platform-tools:/usr/lib/jvm/default-java/bin:/home/vagrant/minsh/cafe/server/flow/:/home/vagrant/bin:/home/vagrant/android-sdk-linux/tools:/home/vagrant/android-sdk-linux/platform-tools:/usr/lib/jvm/default-java/bin:/home/vagrant/minsh/cafe/server/flow/"
+fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

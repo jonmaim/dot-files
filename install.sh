@@ -14,6 +14,7 @@ ln -sf $DIR/.vim
 ln -sf $DIR/.vimrc
 ln -sf $DIR/.bashrc
 ln -sf $DIR/.zshrc
+ln -sf $DIR/.oh-my-zsh
 ln -sf $DIR/.inputrc
 ln -sf $DIR/.aliases
 ln -sf $DIR/.scripts
@@ -21,7 +22,7 @@ ln -sf $DIR/.screenrc
 ln -sf $DIR/.fonts
 
 # YouCompleteMe setup
-sudo apt-get install build-essential cmake python-dev
+sudo apt-get install build-essential cmake python-dev zsh
 cd .vim/bundle/YouCompleteMe;
 ./install.sh
 # tern setup

@@ -125,8 +125,10 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 #[ -f $HOME/dot-files/z/z.sh ] && . $HOME/dot-files/z/z.sh
 
 # osx git completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
+if [[ `uname` == 'Darwin' ]]; then
+  if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
+  fi
 fi
 
 # add ~/bin in PATH env
