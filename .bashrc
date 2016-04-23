@@ -130,5 +130,11 @@ export PATH=${PATH}:~/android-sdk-linux/tools:~/android-sdk-linux/platform-tools
 export ANDROID_HOME=~/android-sdk-linux
 # if on mac uncomment line below
 # export JAVA_HOME=$(/usr/libexec/java_home)
-export JAVA_HOME="/usr/lib/jvm/java-7-oracle"
+export JAVA_HOME="/usr/lib/jvm/default-java"
 export PATH="$PATH:$JAVA_HOME/bin"
+
+export MOSH_TITLE_NOPREFIX=1
+
+# open tabs at startup automation: http://stackoverflow.com/a/3902909/418831
+eval "$BASH_POST_RC"
+PATH="$PATH:/home/vagrant/minsh/cafe/server/flow/"
