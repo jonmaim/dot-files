@@ -1,13 +1,11 @@
-set nocompatible
-set sw=2
-
 " Required Vundle setup
+set nocompatible
 filetype off
-set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " loading vundle bundle first
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 " JS Parenthesis, curly and regular brackets
 " The semicolon or comma at the end of line
@@ -49,7 +47,7 @@ Bundle 'vim-scripts/tComment'
 Bundle 'scrooloose/syntastic'
 
 "
-"Bundle 'marijnh/tern_for_vim'
+Bundle 'marijnh/tern_for_vim'
 "
 Bundle 'Valloric/YouCompleteMe'
 
@@ -70,6 +68,10 @@ Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'groenewege/vim-less'
 " markdown files
 Bundle 'plasticboy/vim-markdown'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " indent guides setup
 let g:indent_guides_guide_size = 1
@@ -194,12 +196,9 @@ set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 
-" detect the type of file
-filetype on
-"filetype plugin indent on
-
-" syntax highlighting
-"syntax on
+" OSX fixes
+syntax on " syntax highlighting
+set backspace=indent,eol,start " delete key
 
 " Color scheme
 colorscheme candy
