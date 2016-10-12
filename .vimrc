@@ -11,8 +11,9 @@ Bundle 'gmarik/Vundle.vim'
 " The semicolon or comma at the end of line
 " Browser, DOM and Ajax keywords like objects, methods, properties and others
 " Operation, comparison and logical symbols (=,==,===,!=,etc.)
-Bundle 'jonmaim/vim-javascript-syntax'
+Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
+
 " enable with <leader>ig
 Bundle 'nathanaelkane/vim-indent-guides'
 
@@ -68,6 +69,8 @@ Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'groenewege/vim-less'
 " markdown files
 Bundle 'plasticboy/vim-markdown'
+" vim abolish: replace and keep case (%S//g)
+Bundle 'tpope/vim-abolish'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
