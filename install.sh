@@ -14,17 +14,22 @@ ln -sf $DIR/.vim
 ln -sf $DIR/.vimrc
 ln -sf $DIR/.bashrc
 ln -sf $DIR/.zshrc
-ln -sf $DIR/.oh-my-zsh
 ln -sf $DIR/.inputrc
 ln -sf $DIR/.aliases
 ln -sf $DIR/.scripts
 ln -sf $DIR/.screenrc
 ln -sf $DIR/.fonts
 
-# YouCompleteMe setup
-sudo apt-get install build-essential cmake python-dev zsh
-cd .vim/bundle/YouCompleteMe;
-./install.sh
 # tern setup
-cd ../tern_for_vim;
+cd .vim/bundle/tern_for_vim;
 npm install;
+
+# YouCompleteMe setup
+cd ../YouCompleteMe;
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  sudo apt-get install build-essential cmake python-dev zsh
+  ./install.sh
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  ./install.py --clang-completer --tern-completer
+fi
