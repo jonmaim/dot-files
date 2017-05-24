@@ -3,7 +3,7 @@
 # should be executed from your home directory root
 
 # get the directory of the install script
-DIR=`dirname $0`
+DIR=`dirname ${BASH_SOURCE[0]}`
 cd $DIR
 git submodule update --init --recursive;
 # vim vundle install
