@@ -7,7 +7,7 @@ DIR=`dirname ${BASH_SOURCE[0]}`
 cd $DIR
 git submodule update --init --recursive;
 # vim vundle install
-[ ! -d "./vim/bundle/Vundle.vim" ] || git clone https://github.com/gmarik/Vundle.vim.git .vim/bundle/Vundle.vim
+[ -d "./vim/bundle/Vundle.vim" ] || git clone https://github.com/gmarik/Vundle.vim.git .vim/bundle/Vundle.vim
 vim +BundleInstall +qall
 cd -
 ln -sf $DIR/.vim
