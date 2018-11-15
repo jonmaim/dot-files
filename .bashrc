@@ -131,17 +131,26 @@ if [[ `uname` == 'Darwin' ]]; then
   [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 fi
 
+if [[ `uname` == 'Darwin' ]]; then
+  export ANDROID_HOME=~/Library/Android/sdk
+else 
+  export ANDROID_HOME=~/android-sdk-linux
+fi
+
 # add ~/bin in PATH env
 export PATH=$PATH:~/bin
-export PATH=${PATH}:~/android-sdk-linux/tools:~/android-sdk-linux/platform-tools
-export ANDROID_HOME=~/android-sdk-linux
-# if on mac uncomment line below
-# export JAVA_HOME=$(/usr/libexec/java_home)
-export JAVA_HOME="/usr/lib/jvm/default-java"
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+if [[ `uname` == 'Darwin' ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+else
+  export JAVA_HOME="/usr/lib/jvm/default-java"
+fi
 export PATH="$PATH:$JAVA_HOME/bin"
 
 export MOSH_TITLE_NOPREFIX=1
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # open tabs at startup automation: http://stackoverflow.com/a/3902909/418831
 eval "$BASH_POST_RC"
-PATH="$PATH:/home/vagrant/minsh/cafe/server/flow/"

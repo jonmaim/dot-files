@@ -53,7 +53,7 @@ Bundle 'marijnh/tern_for_vim'
 Bundle 'Valloric/YouCompleteMe'
 
 " snippet solution
-Bundle 'SirVer/ultisnips'
+"Bundle 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Bundle 'honza/vim-snippets'
 
