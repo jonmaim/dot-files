@@ -20,11 +20,11 @@ termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 defbce on
 
 # default windows
-split
+#split
 screen -t $ 1 bash
 focus
 screen -t $ 2 bash
-resize 10
+#resize 10
 select 0
 bind c screen 1 # window numbering starts at 1 not 0
 bind 0 select 10
