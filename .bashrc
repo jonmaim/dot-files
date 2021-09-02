@@ -126,9 +126,13 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:./lib
 #[ -f ~/.aws ] && . ~/.aws
 #[ -f $HOME/dot-files/z/z.sh ] && . $HOME/dot-files/z/z.sh
 
-# osx git completion
+# git completion
 if [[ `uname` == 'Darwin' ]]; then
-  [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+  [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || {
+      # if not found in /usr/local/etc, try the brew --prefix location
+      [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
+          . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+  }
 fi
 
 if [[ `uname` == 'Darwin' ]]; then
@@ -138,8 +142,7 @@ else
 fi
 
 # add ~/bin in PATH env
-export PATH=$PATH:~/bin
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export PATH=$PATH:~/bin:/opt/homebrew/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 if [[ `uname` == 'Darwin' ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
@@ -154,3 +157,4 @@ export LANG=en_US.UTF-8
 
 # open tabs at startup automation: http://stackoverflow.com/a/3902909/418831
 eval "$BASH_POST_RC"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
