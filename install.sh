@@ -28,7 +28,7 @@ npm install;
 cd ../YouCompleteMe;
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  sudo apt-get install build-essential cmake python-dev zsh
+  sudo apt-get install build-essential cmake python-dev zsh -y
   ./install.sh
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   ./install.py --clang-completer --tern-completer
